@@ -1,0 +1,73 @@
+﻿@model IEnumerable<NaboPlannerAngular.Models.DB.Song>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SongName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SongAuthor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tags)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VerseNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Chorus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Origin)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chorus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origin)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PkSongId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PkSongId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PkSongId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
